@@ -111,12 +111,13 @@ $res=mysqli_query($con,$sql);
 		 }
 
 		 var input,input1, filter, table, tr, td, i, txtValue;
-  function myFunction() {
-  input = document.getElementById("myInput");
+
+		function myFunction() {
+  		input = document.getElementById("myInput");
   
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
+  		filter = input.value.toUpperCase();
+  		table = document.getElementById("myTable");
+  		tr = table.getElementsByTagName("tr");
 
   
   for (i = 0; i < tr.length; i++) {
