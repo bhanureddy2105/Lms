@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2020 at 03:51 PM
+-- Generation Time: Mar 31, 2020 at 02:01 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -21,6 +21,50 @@ SET time_zone = "+00:00";
 --
 -- Database: `leave_management_system`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `department`
+--
+
+CREATE TABLE `department` (
+  `id` int(11) NOT NULL,
+  `department` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `department`
+--
+
+INSERT INTO `department` (`id`, `department`) VALUES
+(3, 'CIVIL Department'),
+(4, 'ECE Department'),
+(5, 'CSE Department');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mobile` varchar(15) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `username`, `email`, `mobile`, `password`, `department_id`, `role`) VALUES
+(0, 'Subhanghi', 'subhanghi@ifheindia.org', '9876543210', 'subanghi', 5, 2),
+(1, 'Admin', 'admin@ifheindia.org', '', 'admin', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -43,7 +87,10 @@ CREATE TABLE `leave` (
 --
 
 INSERT INTO `leave` (`id`, `student_id`, `leave_id`, `leave_from`, `leave_to`, `leave_description`, `leave_status`) VALUES
-(1, 2, 3, '2020-03-23', '2020-03-25', 'vacation', 3);
+(1, 2, 3, '2020-03-23', '2020-03-25', 'vacation', 2),
+(10, 2, 3, '2020-03-24', '2020-03-31', 'corona holidays', 2),
+(11, 5, 4, '2020-03-24', '2020-03-31', 'sick', 3),
+(12, 0, 4, '2020-03-31', '2020-04-03', 'sick', 2);
 
 -- --------------------------------------------------------
 
@@ -121,19 +168,19 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `leave`
 --
 ALTER TABLE `leave`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `leave_type`
 --
 ALTER TABLE `leave_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
