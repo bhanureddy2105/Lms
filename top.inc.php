@@ -56,9 +56,7 @@ if(!isset($_SESSION['ROLE'])){
                      <a href="leave.php" > Student Leave</a>
                   </li>
 
-                  <li class="menu-item-has-children dropdown">
-                     <a href="leave1.php" > Faculty Leave</a>
-                  </li>
+                  
                </ul>
             </div>
          </nav>
