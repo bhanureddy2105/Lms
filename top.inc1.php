@@ -73,7 +73,7 @@ if(!isset($_SESSION['ROLE'])){
             <div class="top-right">
                <div class="header-menu">
                   <div class="user-area dropdown float-right">
-                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome <?php echo $_SESSION['USER_NAME']?></a>
+                     <a id="welcome"href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome <?php echo $_SESSION['USER_NAME']?></a>
                      <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="logout1.php"><i class="fa fa-power-off"></i>Logout</a>
                      </div>
@@ -81,3 +81,10 @@ if(!isset($_SESSION['ROLE'])){
                </div>
             </div>
          </header>
+
+         <style>
+
+            #welcome{
+               color: black;
+            }
+         </style>
