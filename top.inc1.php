@@ -1,7 +1,7 @@
 <?php
 require('db.inc.php');
 if(!isset($_SESSION['ROLE'])){
-	header('location:login.php');
+	header('location:login1.php');
 	die();
 }
 ?>
@@ -48,11 +48,11 @@ if(!isset($_SESSION['ROLE'])){
                   </li>
 				  <?php } else { ?>
 				  <li class="menu-item-has-children dropdown">
-                     <a href="profile.php?id=<?php echo $_SESSION['USER_ID']?>" > Profile</a>
+                     <a href="profile1.php?id=<?php echo $_SESSION['USER_ID']?>" > Profile</a>
                   </li>
 				  <?php }  ?>
 				  
-				   <li class="menu-item-has-children dropdown">
+              <li class="menu-item-has-children dropdown">
                      <a href="leave.php" > Student Leave</a>
                   </li>
 
@@ -77,7 +77,7 @@ if(!isset($_SESSION['ROLE'])){
                   <div class="user-area dropdown float-right">
                      <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome <?php echo $_SESSION['USER_NAME']?></a>
                      <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
+                        <a class="nav-link" href="logout1.php"><i class="fa fa-power-off"></i>Logout</a>
                      </div>
                   </div>
                </div>

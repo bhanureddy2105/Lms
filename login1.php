@@ -4,14 +4,14 @@ $msg="";
 if(isset($_POST['username']) && isset($_POST['password'])){
 	$username=mysqli_real_escape_string($con,$_POST['username']);
 	$password=mysqli_real_escape_string($con,$_POST['password']);
-	$res=mysqli_query($con,"select * from student where username='$username' and password='$password'");
+	$res=mysqli_query($con,"select * from employee where username='$username' and password='$password'");
 	$count=mysqli_num_rows($res);
 	if($count>0){
 		$row=mysqli_fetch_assoc($res);
 		$_SESSION['ROLE']=$row['role'];
 		$_SESSION['USER_ID']=$row['id'];
 		$_SESSION['USER_NAME']=$row['username'];
-		header('location:index.php');
+		header('location:index1.php');
 		die();
 	}else{
 		$msg="Please enter correct login details";
@@ -24,7 +24,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Student Login Page</title>
+      <title>Faculty Login Page</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="assets/css/normalize.css">
       <link rel="stylesheet" href="assets/css/bootstrap.min.css">

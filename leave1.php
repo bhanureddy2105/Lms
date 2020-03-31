@@ -1,5 +1,5 @@
 <?php
-require('top.inc.php');
+require('top.inc1.php');
 
 
 if(isset($_GET['type']) && $_GET['type']=='delete' && isset($_GET['id'])){
@@ -12,10 +12,10 @@ if(isset($_GET['type']) && $_GET['type']=='update' && isset($_GET['id'])){
 	mysqli_query($con,"update `leave` set leave_status='$status' where id='$id'");
 }
 if($_SESSION['ROLE']==1){ 
-	$sql="select `leave`.*, student.username,student.id as eid from `leave`,student where `leave`.student_id=student.id order by `leave`.id desc";
+	$sql="select `leave`.*, employee.username,employee.id as eid from `leave`,employee where `leave`.student_id=employee.id order by `leave`.id desc";
 }else{
 	$eid=$_SESSION['USER_ID'];
-	$sql="select `leave`.*, student.username ,student.id as eid from `leave`,student where `leave`.student_id='$eid' and `leave`.student_id=student.id order by `leave`.id desc ";
+	$sql="select `leave`.*, employee.username ,employee.id as eid from `leave`,employee where `leave`.student_id='$eid' and `leave`.student_id=employee.id order by `leave`.id desc ";
 }
 $res=mysqli_query($con,$sql);
 ?>
@@ -43,7 +43,7 @@ $res=mysqli_query($con,$sql);
                                     <tr>
                                        <th width="5%">S.No</th>
                                        <!-- <th width="5%">ID</th> -->
-									   <th width="15%">Enrollment No.</th>
+									   <th width="15%">Username</th>
                                        <th width="14%">From</th>
 									   <th width="14%">To</th>
 									   <th width="15%">Description</th>
@@ -86,7 +86,7 @@ $res=mysqli_query($con,$sql);
 									   <td>
 									   <?php
 									   if($row['leave_status']==1){ ?>
-									   <a id="delete" href="leave.php?id=<?php echo $row['id']?>&type=delete">Delete</a>
+									   <a id="delete"href="leave1.php?id=<?php echo $row['id']?>&type=delete">Delete</a>
 									   <?php } ?>
 									   
 									   
@@ -107,7 +107,7 @@ $res=mysqli_query($con,$sql);
 		  </div>
          <script>
 		 function update_leave_status(id,select_value){
-			window.location.href='leave.php?id='+id+'&type=update&status='+select_value;
+			window.location.href='leave1.php?id='+id+'&type=update&status='+select_value;
 		 }
 
 		 var input,input1, filter, table, tr, td, i, txtValue;
