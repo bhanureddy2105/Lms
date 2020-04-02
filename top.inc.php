@@ -43,6 +43,11 @@ if(!isset($_SESSION['ROLE'])){
                   <li class="menu-item-has-children dropdown">
                      <a href="employee.php" > Faculty Manager</a>
                   </li>
+
+                  <li class="menu-item-has-children dropdown">
+                     <a href="leave1.php" > Faculty Leave</a>
+                  </li>
+
                   <li class="menu-item-has-children dropdown">
                      <a href="student.php" > Student Manager</a>
                   </li>
@@ -51,10 +56,7 @@ if(!isset($_SESSION['ROLE'])){
                      <a href="leave.php" > Student Leave</a>
                   </li>
 
-                  <li class="menu-item-has-children dropdown">
-                     <a href="leave1.php" > Faculty Leave</a>
-                  </li>
-
+                  
 				  <?php } else { ?>
 				  <li class="menu-item-has-children dropdown">
                      <a href="profile.php?id=<?php echo $_SESSION['USER_ID']?>" > Profile</a>
@@ -62,6 +64,11 @@ if(!isset($_SESSION['ROLE'])){
                   <li class="menu-item-has-children dropdown">
                      <a href="leave.php" > Student Leave</a>
                   </li>
+
+                  <li class="menu-item-has-children dropdown">
+                     <a href="changepassword.php" > Change Password</a>
+                  </li>
+
 				  <?php }  ?>
 				  
 				      

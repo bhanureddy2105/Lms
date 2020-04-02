@@ -4,18 +4,18 @@ require('top.inc1.php');
 
 if(isset($_GET['type']) && $_GET['type']=='delete' && isset($_GET['id'])){
 	$id=mysqli_real_escape_string($con,$_GET['id']);
-	mysqli_query($con,"delete from `leave` where id='$id'");
+	mysqli_query($con,"delete from `faculty_leave` where id='$id'");
 }
 if(isset($_GET['type']) && $_GET['type']=='update' && isset($_GET['id'])){
 	$id=mysqli_real_escape_string($con,$_GET['id']);
 	$status=mysqli_real_escape_string($con,$_GET['status']);
-	mysqli_query($con,"update `leave` set leave_status='$status' where id='$id'");
+	mysqli_query($con,"update `faculty_leave` set leave_status='$status' where id='$id'");
 }
 if($_SESSION['ROLE']==1){ 
-	$sql="select `leave`.*, employee.username,employee.id as eid from `leave`,employee where `leave`.student_id=employee.id order by `leave`.id desc";
+	$sql="select `faculty_leave`.*, employee.username,employee.id as eid from `faculty_leave`,employee where `faculty_leave`.faculty_id=employee.id order by `faculty_leave`.id desc";
 }else{
 	$eid=$_SESSION['USER_ID'];
-	$sql="select `leave`.*, employee.username ,employee.id as eid from `leave`,employee where `leave`.student_id='$eid' and `leave`.student_id=employee.id order by `leave`.id desc ";
+	$sql="select `faculty_leave`.*, employee.username ,employee.id as eid from `faculty_leave`,employee where `faculty_leave`.faculty_id='$eid' and `faculty_leave`.faculty_id=employee.id order by `faculty_leave`.id desc ";
 }
 $res=mysqli_query($con,$sql);
 ?>
@@ -27,7 +27,7 @@ $res=mysqli_query($con,$sql);
                         <div class="card-body">
                            <h2 class="">Leave </h2>
 						    <?php if($_SESSION['ROLE']==2){ ?>
-						   <h4 class="box_title_link"><a id="add" href="add_leave.php">Add Leave</a> </h4>
+						   <h4 class="box_title_link"><a id="add" href="add_leave1.php">Add Leave</a> </h4>
 						   <?php } ?>
 
 						   <?php if($_SESSION['ROLE']==1){?>

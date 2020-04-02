@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2020 at 02:01 PM
+-- Generation Time: Apr 02, 2020 at 12:30 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -63,8 +63,31 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `username`, `email`, `mobile`, `password`, `department_id`, `role`) VALUES
-(0, 'Subhanghi', 'subhanghi@ifheindia.org', '9876543210', 'subanghi', 5, 2),
+(0, 'Subhanghi', 'subhanghi@ifheindia.org', '9876543210', 'abcde', 5, 2),
 (1, 'Admin', 'admin@ifheindia.org', '', 'admin', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty_leave`
+--
+
+CREATE TABLE `faculty_leave` (
+  `id` int(11) NOT NULL,
+  `faculty_id` int(11) NOT NULL,
+  `leave_id` int(11) NOT NULL,
+  `leave_from` date NOT NULL,
+  `leave_to` date NOT NULL,
+  `leave_description` text NOT NULL,
+  `leave_status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `faculty_leave`
+--
+
+INSERT INTO `faculty_leave` (`id`, `faculty_id`, `leave_id`, `leave_from`, `leave_to`, `leave_description`, `leave_status`) VALUES
+(1, 0, 4, '2020-04-16', '2020-04-28', 'sick', 2);
 
 -- --------------------------------------------------------
 
@@ -90,7 +113,8 @@ INSERT INTO `leave` (`id`, `student_id`, `leave_id`, `leave_from`, `leave_to`, `
 (1, 2, 3, '2020-03-23', '2020-03-25', 'vacation', 2),
 (10, 2, 3, '2020-03-24', '2020-03-31', 'corona holidays', 2),
 (11, 5, 4, '2020-03-24', '2020-03-31', 'sick', 3),
-(12, 0, 4, '2020-03-31', '2020-04-03', 'sick', 2);
+(12, 0, 4, '2020-03-31', '2020-04-03', 'sick', 2),
+(18, 2, 3, '2020-04-09', '2020-04-22', 'vacation', 2);
 
 -- --------------------------------------------------------
 
@@ -143,6 +167,12 @@ INSERT INTO `student` (`id`, `username`, `email`, `mobile`, `password`, `role`) 
 --
 
 --
+-- Indexes for table `faculty_leave`
+--
+ALTER TABLE `faculty_leave`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `leave`
 --
 ALTER TABLE `leave`
@@ -165,16 +195,22 @@ ALTER TABLE `student`
 --
 
 --
+-- AUTO_INCREMENT for table `faculty_leave`
+--
+ALTER TABLE `faculty_leave`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `leave`
 --
 ALTER TABLE `leave`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `leave_type`
 --
 ALTER TABLE `leave_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `student`

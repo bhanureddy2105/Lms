@@ -4,7 +4,6 @@ $username='';
 $email='';
 $mobile='';
 $id='';
-
 if(isset($_GET['id'])){
 	$id=mysqli_real_escape_string($con,$_GET['id']);
 	if($_SESSION['ROLE']==2 && $_SESSION['USER_ID']!=$id){
@@ -15,11 +14,10 @@ if(isset($_GET['id'])){
 	$username=$row['username'];
 	$email=$row['email'];
 	$mobile=$row['mobile'];
-
-
-
-
 }
+
+
+
 if(isset($_POST['submit'])){
 	$username=mysqli_real_escape_string($con,$_POST['username']);
 	$email=mysqli_real_escape_string($con,$_POST['email']);
@@ -55,6 +53,8 @@ if(isset($_POST['submit'])){
 									<label class=" form-control-label">Mobile</label>
 									<input type="text" value="<?php echo $mobile?>" name="mobile"  class="form-control" required>
 								</div>
+
+								
 								
 								
 							   <?php if($_SESSION['ROLE']==1){?>
