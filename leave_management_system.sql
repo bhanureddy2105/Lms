@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2020 at 08:43 AM
+-- Generation Time: Apr 17, 2020 at 01:56 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -40,7 +40,8 @@ CREATE TABLE `department` (
 INSERT INTO `department` (`id`, `department`) VALUES
 (3, 'CIVIL Department'),
 (4, 'ECE Department'),
-(5, 'CSE Department');
+(5, 'CSE Department'),
+(6, 'Mechanical Department');
 
 -- --------------------------------------------------------
 
@@ -63,8 +64,9 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `username`, `email`, `mobile`, `password`, `department_id`, `role`) VALUES
-(0, 'Subhanghi', 'subhanghi@ifheindia.org', '9876543210', 'abcde', 5, 2),
-(1, 'Admin', 'admin@ifheindia.org', '', 'admin', 0, 1);
+(1, 'Admin', 'admin@ifheindia.org', '', 'admin', 0, 1),
+(2, 'subhanghi', 'subhanghi@ifheindia.org', '987646474', 'abcde', 5, 2),
+(3, 'pavan kumar', 'pavan@ifheindia.org', '7484939300', 'ifhe', 4, 2);
 
 -- --------------------------------------------------------
 
@@ -133,7 +135,6 @@ CREATE TABLE `leave_type` (
 
 INSERT INTO `leave_type` (`id`, `leave_type`) VALUES
 (2, 'Casual'),
-(3, 'Vacation'),
 (4, 'Sick');
 
 -- --------------------------------------------------------
@@ -167,6 +168,18 @@ INSERT INTO `student` (`id`, `username`, `email`, `mobile`, `password`, `role`) 
 --
 
 --
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `faculty_leave`
 --
 ALTER TABLE `faculty_leave`
@@ -195,6 +208,18 @@ ALTER TABLE `student`
 --
 
 --
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `faculty_leave`
 --
 ALTER TABLE `faculty_leave`
@@ -216,7 +241,7 @@ ALTER TABLE `leave_type`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -16,7 +16,7 @@ if(isset($_GET['id'])){
 	$email=$row['email'];
 	$mobile=$row['mobile'];
 	$department_id=$row['department_id'];
-	
+
 }
 if(isset($_POST['submit'])){
 	$username=mysqli_real_escape_string($con,$_POST['username']);
@@ -40,12 +40,12 @@ if(isset($_POST['submit'])){
                <div class="row">
                   <div class="col-lg-12">
                      <div class="card">
-                        <div class="card-header"><strong>Profile</strong></div>
+                        <div class="card-header"><strong>Leave Type</strong><small> Form</small></div>
                         <div class="card-body card-block">
                            <form method="post">
 							   <div class="form-group">
 									<label class=" form-control-label">username</label>
-									<input type="text" value="<?php echo $username?>" name="name" placeholder="Enter employee username" class="form-control" required>
+									<input type="text" value="<?php echo $username?>" name="username" placeholder="Enter employee username" class="form-control" required>
 								</div>
 								<div class="form-group">
 									<label class=" form-control-label">Email</label>
@@ -74,8 +74,7 @@ if(isset($_POST['submit'])){
 										}
 										?>
 									</select>
-								</div>
-								
+									</div>
 							   <?php if($_SESSION['ROLE']==1){?>
 							   <button  type="submit" name="submit" class="btn btn-lg btn-info btn-block">
 							   <span id="payment-button-amount">Submit</span>

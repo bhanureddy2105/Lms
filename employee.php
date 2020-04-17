@@ -26,7 +26,7 @@ $res=mysqli_query($con,"select * from employee where role=2 order by id desc");
                                     <tr>
                                        <th width="5%">S.No</th>
                                        <th width="5%">ID</th>
-                                       <th width="40%">Name</th>
+                                       <th width="40%">Username</th>
 									   <th width="15%">Email</th>
 									   <th width="15%">Mobile</th>
                                        <th width="20%"></th>
@@ -39,7 +39,7 @@ $res=mysqli_query($con,"select * from employee where role=2 order by id desc");
 									<tr>
                                        <td><?php echo $i?></td>
 									   <td><?php echo $row['id']?></td>
-                                       <td><?php echo $row['username']?></td>
+                              <td><?php echo $row['username']?></td>
 									   <td><?php echo $row['email']?></td>
 									   <td><?php echo $row['mobile']?></td>
 									   <td><a id="add1"href="add_employee.php?id=<?php echo $row['id']?>">Edit</a> <a id="add2"href="employee.php?id=<?php echo $row['id']?>&type=delete">Delete</a></td>
