@@ -47,7 +47,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                <div id="form"class="login-form mt-150">
                   <form method="post">
                      <div>
-                        <h2 class="title">Leave Management System</h2>
+                        <h2 class="title">Student Leave Management System</h2>
                         <br>
                      </div>
                      <div class="form-group">
