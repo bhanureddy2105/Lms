@@ -7,9 +7,14 @@ if(isset($_POST['submit'])){
 	$leave_to=mysqli_real_escape_string($con,$_POST['leave_to']);
 	$faculty_id=$_SESSION['USER_ID'];
 	$leave_description=mysqli_real_escape_string($con,$_POST['leave_description']);
-	$sql="insert into `faculty_leave`(leave_id,leave_from,leave_to,faculty_id,leave_description,leave_status) values('$leave_id','$leave_from','$leave_to','$faculty_id','$leave_description',1)";
-	mysqli_query($con,$sql);
-	header('location:leave1.php');
+	if($leave_from<$leave_to){
+		$sql="insert into `leave`(leave_id,leave_from,leave_to,student_id,leave_description,leave_status) values('$leave_id','$leave_from','$leave_to','$student_id','$leave_description',1)";
+		mysqli_query($con,$sql);
+		header('location:leave.php');
+		}
+		else{
+			echo "<script> alert('Enter a valid Leave to date')</script>"; 
+		}
 	die();
 }
 ?>
