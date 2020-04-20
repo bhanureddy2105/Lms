@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
 	$leave_to=mysqli_real_escape_string($con,$_POST['leave_to']);
 	$student_id=$_SESSION['USER_ID'];
 	$leave_description=mysqli_real_escape_string($con,$_POST['leave_description']);
-	if($leave_from<$leave_to && $leave_from>=(date("Y/m/d"))){
+	if($leave_from<$leave_to){
 	$sql="insert into `leave`(leave_id,leave_from,leave_to,student_id,leave_description,leave_status) values('$leave_id','$leave_from','$leave_to','$student_id','$leave_description',1)";
 	mysqli_query($con,$sql);
 	header('location:leave.php');
@@ -42,11 +42,11 @@ if(isset($_POST['submit'])){
 								</div>
 							   <div class="form-group">
 									<label class=" form-control-label">From Date</label>
-									<input type="date" name="leave_from"  class="form-control" required>
+									<input type="date" id="txtDate" name="leave_from"  class="form-control" required>
 								</div>
 								<div class="form-group">
 									<label class=" form-control-label">To Date</label>
-									<input type="date" name="leave_to" class="form-control" required>
+									<input type="date" id="txtDate1" name="leave_to" class="form-control" required>
 								</div>
 								<div class="form-group">
 									<label class=" form-control-label">Leave Description</label>
@@ -63,7 +63,44 @@ if(isset($_POST['submit'])){
                </div>
             </div>
          </div>
-                  
+				
+		 
+
+		 <script>
+			 $(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    // alert(maxDate);
+    $('#txtDate').attr('min', maxDate);
+});
+
+
+
+$(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    // alert(maxDate);
+    $('#txtDate1').attr('min', maxDate);
+});
+		 </script>
 <?php
 require('footer.inc.php');
 ?>
